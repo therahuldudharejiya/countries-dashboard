@@ -1,9 +1,37 @@
-import { sortCountriesByPopulation, filterCountriesByRegion, searchCountries } from '../utils/countryUtils';
-import { Country } from '../types/country';
+import { sortCountriesByPopulation, filterCountriesByRegion, searchCountries } from '@/app/utils/countryUtils';
+import Country from '../types/country';
 
 const mockCountries: Country[] = [
-    { name: { common: 'Country A', official: 'Country A' }, capital: ['Capital A'], region: 'Asia', population: 1000, flags: { png: '' }, currencies: {}, languages: {}, timezones: [] },
-    { name: { common: 'Country B', official: 'Country B' }, capital: ['Capital B'], region: 'Europe', population: 2000, flags: { png: '' }, currencies: {}, languages: {}, timezones: [] },
+    {
+        name: {
+            common: 'Country A',
+            official: 'Country A'
+        },
+        capital: ['Capital A'],
+        region: 'Asia',
+        population: 1000,
+        flags: {
+            png: ''
+        },
+        currencies: {},
+        languages: {},
+        timezones: []
+    },
+    {
+        name: {
+            common: 'Country B',
+            official: 'Country B'
+        },
+        capital: ['Capital B'],
+        region: 'Europe',
+        population: 2000,
+        flags: {
+            png: ''
+        },
+        currencies: {},
+        languages: {},
+        timezones: []
+    },
 ];
 
 test('sortCountriesByPopulation sorts countries in ascending order', () => {
