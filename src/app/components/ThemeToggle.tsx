@@ -1,12 +1,32 @@
-import { useTheme } from 'next-themes';
+'use client';
+import React, { useState, useEffect } from 'react';
 
-const ThemeToggle = () => {
-    const { theme, setTheme } = useTheme();
+const ThemeToggle: React.FC = () => {
+    const [theme, setTheme] = useState<string>('light');
+
+    useEffect(() => {
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        setTheme(savedTheme);
+        document.documentElement.setAttribute('data-theme', savedTheme);
+    }, []);
+
+    const toggleTheme = () => {
+        setTheme(prevTheme => {
+            const newTheme = prevTheme === 'light' ? 'dark' : 'light';
+            localStorage.setItem('theme', newTheme);
+            document.documentElement.setAttribute('data-theme', newTheme);
+            return newTheme;
+        });
+    };
 
     return (
-        <button onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}>
-            Toggle {theme === 'light' ? 'Dark' : 'Light'} Mode
-        </button>
+        <span
+            onClick={toggleTheme}
+            className=""
+        >
+            {theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+        </span>
+
     );
 };
 

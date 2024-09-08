@@ -1,4 +1,4 @@
-import { Country } from '../types/country';
+import Country from '@/app/types/country';
 
 export const sortCountriesByPopulation = (countries: Country[], ascending = true): Country[] => {
     return countries.sort((a, b) => (ascending ? a.population - b.population : b.population - a.population));
