@@ -1,7 +1,7 @@
 import { sortCountriesByPopulation, filterCountriesByRegion, searchCountries } from '@/app/utils/countryUtils';
 import Country from '../types/country';
 
-const mockCountries: Country[] = [
+const mockCountries = [
     {
         name: {
             common: 'Country A',
